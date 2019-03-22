@@ -1,0 +1,5 @@
+- name: Restart Syncthing
+  service:
+    name: syncthing
+    state: restarted
+    user: yes
