@@ -1,0 +1,13 @@
+- name: Install default packages
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  become: yes
+  vars:
+    packages:
+    - aptitude
+    - bc
+    - build-essential
+    - htop
+    - vim
