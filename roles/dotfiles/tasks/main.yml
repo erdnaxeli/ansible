@@ -1,0 +1,19 @@
+- name: Copy screenrc
+  copy:
+    src: screenrc
+    dest: "{{ ansible_env.HOME }}/.screenrc"
+
+- name: Create SSH directory
+  file:
+    path: "{{ ansible_env.HOME }}/.ssh"
+    state: directory
+
+- name: Copy SSH rc
+  copy:
+    src: sshrc
+    dest: "{{ ansible_env.HOME }}/.ssh/rc"
+
+- name: Copy gitconfig
+  copy:
+    src: gitconfig
+    dest: "{{ ansible_env.HOME }}/.gitconfig"

@@ -1,0 +1,25 @@
+[user]
+	email = amorignot@meilleursagents.com
+	name = Alexandre Morignot
+	signingkey = E6D384F2C2705C96
+[pull]
+	rebase = true
+[push]
+	default = current
+[alias]
+	cp = !git checkout master && git pull
+	fo = !sh -c 'git fetch origin ${1}:${1}' -
+	fr = !sh -c 'git fetch origin ${1}:${1} && git rebase $1' -
+	fh = !git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)
+	rim = !git rebase -i $(git merge-base master HEAD)
+	carn = commit --amend --reset-author --no-edit
+	carnf = !git carn && git pushf
+	pushf = push --force-with-lease
+[rebase]
+	autoStash = true
+	autosquash = true
+[commit]
+	gpgsign = true
+[rerere]
+	enabled = true
+	autoupdate = true
