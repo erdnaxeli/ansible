@@ -10,4 +10,5 @@
     - bc
     - build-essential
     - htop
+    - python-lxml
     - vim

@@ -2,4 +2,4 @@
   service:
     name: syncthing
     state: restarted
-    user: yes
+    scope: user

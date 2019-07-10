@@ -33,4 +33,89 @@
     name: syncthing
     enabled: yes
     state: started
-    user: yes
+    scope: user
+
+- name: Wait for Syncthing to start
+  wait_for:
+    path: "{{ ansible_env.HOME }}/.config/syncthing/config.xml"
+
+- name: Set Syncthing GUI address
+  xml:
+    file: "{{ ansible_env.HOME }}/.config/syncthing/config.xml"
+    xpath: /configuration/gui/address
+    value: 127.0.0.1:8384
+  notify:
+    - Restart Syncthing
+
+- name: Set Syncthing listen address
+  xml:
+    file: "{{ ansible_env.HOME }}/.config/syncthing/config.xml"
+    xpath: /configuration/options/listenAddress
+    value: 127.0.0.1:22000
+  notify:
+    - Restart Syncthing
+
+- name: Disable Syncthing global announce
+  xml:
+    file: "{{ ansible_env.HOME }}/.config/syncthing/config.xml"
+    xpath: /configuration/options/globalAnnounceEnabled
+    value: "false"
+  notify:
+    - Restart Syncthing
+
+- name: Disable Syncthing local announce
+  xml:
+    file: "{{ ansible_env.HOME }}/.config/syncthing/config.xml"
+    xpath: /configuration/options/localAnnounceEnabled
+    value: "false"
+  notify:
+    - Restart Syncthing
+
+- name: Disable Syncthing relays
+  xml:
+    file: "{{ ansible_env.HOME }}/.config/syncthing/config.xml"
+    xpath: /configuration/options/relaysEnabled
+    value: "false"
+  notify:
+    - Restart Syncthing
+
+- name: Disable Syncthing start browser
+  xml:
+    file: "{{ ansible_env.HOME }}/.config/syncthing/config.xml"
+    xpath: /configuration/options/startBrowser
+    value: "false"
+  notify:
+    - Restart Syncthing
+
+- name: Enable Syncthing nat traversal
+  xml:
+    file: "{{ ansible_env.HOME }}/.config/syncthing/config.xml"
+    xpath: /configuration/options/natEnabled
+    value: "true"
+  notify:
+    - Restart Syncthing
+
+- name: Disable Syncthing auto upgrade
+  xml:
+    file: "{{ ansible_env.HOME }}/.config/syncthing/config.xml"
+    xpath: /configuration/options/autoUpgradeIntervalH
+    value: "0"
+  notify:
+    - Restart Syncthing
+
+- name: Set Syncthing min disk free
+  xml:
+    file: "{{ ansible_env.HOME }}/.config/syncthing/config.xml"
+    xpath: /configuration/options/minHomeDiskFree
+    value: "5"
+  notify:
+    - Restart Syncthing
+
+- name: Set Syncthing min disk free unit
+  xml:
+    file: "{{ ansible_env.HOME }}/.config/syncthing/config.xml"
+    xpath: /configuration/options/minHomeDiskFree
+    attribute: unit
+    value: "%"
+  notify:
+    - Restart Syncthing
