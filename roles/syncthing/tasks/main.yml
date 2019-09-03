@@ -51,7 +51,7 @@
   xml:
     file: "{{ ansible_env.HOME }}/.config/syncthing/config.xml"
     xpath: /configuration/options/listenAddress
-    value: 127.0.0.1:22000
+    value: tcp://127.0.0.1:22000
   notify:
     - Restart Syncthing
 
