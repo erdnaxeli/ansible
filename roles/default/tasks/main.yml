@@ -9,6 +9,8 @@
     - aptitude
     - bc
     - build-essential
+    - git
     - htop
+    - mosh
     - python-lxml
     - vim
