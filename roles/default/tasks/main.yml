@@ -11,6 +11,7 @@
     - build-essential
     - git
     - htop
+    - libxml2-utils
     - mosh
     - python-lxml
     - vim
