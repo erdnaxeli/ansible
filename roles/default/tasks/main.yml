@@ -13,5 +13,6 @@
     - htop
     - libxml2-utils
     - mosh
+    - ncdu
     - python-lxml
     - vim
