@@ -17,3 +17,8 @@
   copy:
     src: gitconfig
     dest: "{{ ansible_env.HOME }}/.gitconfig"
+
+- name: Copy psqlrc
+  copy:
+    src: psqlrc
+    dest: "{{ ansible_env.HOME }}/.psqlrc"
