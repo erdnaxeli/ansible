@@ -5,7 +5,7 @@
 
 - name: Download Syncthing
   unarchive:
-    src: https://github.com/syncthing/syncthing/releases/download/v1.3.0/syncthing-linux-amd64-v1.3.0.tar.gz
+    src: https://github.com/syncthing/syncthing/releases/download/v1.3.2/syncthing-linux-amd64-v1.3.2.tar.gz
     dest: "{{ ansible_env.HOME }}/.syncthing"
     remote_src: yes
     extra_opts:
